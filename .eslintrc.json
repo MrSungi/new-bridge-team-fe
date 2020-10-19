@@ -8,7 +8,9 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "airbnb",
-        "airbnb/hooks"
+        "airbnb/hooks",
+        "prettier",
+        "prettier/react"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -22,7 +24,9 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks",
+        "prettier"
     ],
     "rules": {
     }
