@@ -23,8 +23,9 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["react"],
   "rules": {
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "react/prop-types": [0]
   }
 }
