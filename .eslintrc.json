@@ -26,6 +26,7 @@
   "plugins": ["react"],
   "rules": {
     "no-use-before-define": "off",
-    "react/prop-types": [0]
+    "react/prop-types": [0],
+    "react/jsx-props-no-spreading": 0
   }
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Login from './Login';
+import LoginOldView from './LoginOld';
 import { getCurrentUser, isUserAuthenticating } from './store/loginSelectors';
 import { authenticateUser } from './store/loginSlice';
 
@@ -12,4 +12,4 @@ const mapDispatchToProps = {
   authenticateUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginOldView);
