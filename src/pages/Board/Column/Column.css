@@ -1,0 +1,39 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  background-color: #e9e9eb;
+  margin: 25px;
+  width: 33vw;
+  flex-grow: initial;
+}
+.column-header {
+  padding: 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#first {
+  background: linear-gradient(90deg, rgba(93, 12, 255, 1) 0%, rgba(155, 0, 250, 1) 100%);
+}
+
+#second {
+  background: linear-gradient(90deg, rgba(255, 12, 241, 1) 0%, rgba(250, 0, 135, 1) 100%);
+}
+
+#third {
+  background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, 1) 100%);
+}
+
+button {
+  margin-bottom: 20px;
+  width: 25px;
+  height: 25px;
+}

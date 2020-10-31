@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import AuthenticatedPageLayout from '../../components/AuthenticatedPageLayout/AuthenticatedPageLayout';
+import Columns from './Columns/Columns';
 
-const Boards = () => (
+const Board = ({ board }) => (
   <>
     <AuthenticatedPageLayout>
-      <h4>This is boards list page</h4>
-      <Link to="/board">Board page</Link>
+      <h4>This is board page</h4>
+      <Columns board={board} />
     </AuthenticatedPageLayout>
   </>
 );
 
-export default Boards;
+export default Board;

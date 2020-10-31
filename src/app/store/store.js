@@ -3,10 +3,12 @@ import createSagaMiddleware from 'redux-saga';
 import login from '../../pages/Login/store/loginSlice';
 import loginOld from '../../pages/LoginOld/store/loginSlice';
 import sagas from './sagas';
+import board from './state/board/boardReducer';
 
 const reducer = combineReducers({
   login,
   loginOld,
+  board,
 });
 
 const sagaMiddleware = createSagaMiddleware();

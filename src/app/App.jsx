@@ -6,6 +6,7 @@ import LoginOld from '../pages/LoginOld';
 import Boards from '../pages/Boards';
 import AuthenticatedRoute from '../components/AuthenticatedRoute';
 import Profile from '../pages/Profile';
+import Board from '../pages/Board';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
 
         <AuthenticatedRoute exact path="/boards" component={Boards} />
+        <AuthenticatedRoute exact path="/board" component={Board} />
         <AuthenticatedRoute exact path="/profile" component={Profile} />
 
         <Redirect exact from="/" to="/login" />
