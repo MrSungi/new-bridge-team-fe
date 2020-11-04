@@ -2,10 +2,10 @@ import React from 'react';
 import Column from '../Column';
 import './Columns.css';
 
-export default function Columns({ board }) {
+export default function Columns({ columns }) {
   return (
     <div className="columns">
-      {board.map(column => (
+      {columns.map(column => (
         <Column column={column} key={column.id} />
       ))}
     </div>
