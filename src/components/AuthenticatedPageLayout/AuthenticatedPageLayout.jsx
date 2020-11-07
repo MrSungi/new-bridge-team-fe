@@ -1,10 +1,10 @@
 import React from 'react';
-import NavBarView from '../NavBar/NavBar';
+import Header from '../Header/Header';
 
 export default ({ children }) => {
   return (
     <>
-      <NavBarView />
+      <Header />
       {children}
     </>
   );

@@ -1,11 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './NavBar.css';
 
-const NavBarView = () => (
-  <>
-    <Link to="/boards"> Boards </Link>
-    <Link to="/profile"> Profile </Link>
-  </>
-);
+const NavBarView = () => {
+  return (
+    <>
+      <NavLink className="navigation" activeClassName="active" to="/boards">
+        Boards
+      </NavLink>
+      <NavLink className="navigation" activeClassName="active" to="/profile">
+        Profile
+      </NavLink>
+    </>
+  );
+};
 
 export default NavBarView;

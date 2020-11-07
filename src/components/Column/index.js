@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addItem } from '../../../app/store/state/board/boardActions';
+import { addItem } from '../../pages/Board/store/boardActions';
 import Column from './Column';
 
 const mapDispatchToProps = {

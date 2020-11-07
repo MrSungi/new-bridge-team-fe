@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthenticatedPageLayout from '../../components/AuthenticatedPageLayout/AuthenticatedPageLayout';
-import Columns from './Columns/Columns';
+import Columns from '../../components/Columns/Columns';
 
 const Board = ({ columns }) => (
   <>

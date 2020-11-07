@@ -1,10 +1,7 @@
 .column {
-  display: flex;
-  flex-direction: column;
-  background-color: #e9e9eb;
-  margin: 25px;
-  width: 30vw;
-  flex-grow: initial;
+  margin-right: 20px;
+  margin-left: 5px;
+  width: 33vw;
 }
 .column-header {
   padding: 5px;
@@ -16,8 +13,6 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 #first {
@@ -30,10 +25,4 @@
 
 #third {
   background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, 1) 100%);
-}
-
-button {
-  margin-bottom: 20px;
-  width: 25px;
-  height: 25px;
 }
