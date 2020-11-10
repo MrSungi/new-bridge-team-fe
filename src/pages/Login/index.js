@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
-import { getCurrentUser, isUserAuthenticating } from './store/loginSelectors';
+import {
+  getCurrentUser,
+  getIsUserAuthenticating,
+  getIsUserAuthenticationError,
+} from './store/loginSelectors';
 import { authenticateUser } from './store/loginSlice';
 import Login from './Login';
 
 const mapStateToProps = state => ({
   currentUser: getCurrentUser(state),
-  isAuthenticating: isUserAuthenticating(state),
+  isAuthenticating: getIsUserAuthenticating(state),
+  isUserAuthenticationError: getIsUserAuthenticationError(state),
 });
 
 const mapDispatchToProps = {

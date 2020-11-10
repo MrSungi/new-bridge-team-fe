@@ -1,19 +1,69 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { authenticateUser, authenticateUserError, setCurrentUser } from './loginSlice';
-import loginApi from './loginApi';
+import {
+  authenticateUser,
+  authenticateUserError,
+  setCurrentUser,
+  fetchAuthData,
+  saveAuthData,
+  fetchUserError,
+} from './loginSlice';
+import api from './loginApi';
+import {
+  getAuthenticationToken,
+  getUser,
+  saveAuthDataLocal,
+} from '../../../utils/localStoreFunctions';
 
 function* authenticateUserSaga(action) {
-  const { payload: email } = action;
+  const { payload: credentials } = action;
   try {
-    const userDetails = yield call(loginApi.authenticateUser, email);
-    yield put(setCurrentUser(userDetails));
+    // TODO: when back end present change to authenticateUser2
+    const userDetails = yield call(api.authenticateUser, credentials);
+
+    yield put(saveAuthData(userDetails.data)); // save data in local store
   } catch (e) {
     yield put(authenticateUserError());
   }
 }
 
+function* saveAuthDataSaga(action) {
+  try {
+    const { payload: userDetails } = action;
+    yield call(saveAuthDataLocal, {
+      token: userDetails.token,
+      user: userDetails.user.name,
+    });
+    yield put(setCurrentUser(userDetails.user)); // set data in redux store
+  } catch (e) {
+    yield put(authenticateUserError());
+  }
+}
+
+function* fetchAuthDataSaga() {
+  try {
+    // TODO: when back end present change to authorization2
+    const authoritiesResp = yield call(api.authorization);
+    const authorities = authoritiesResp.data;
+    const token = yield call(getAuthenticationToken);
+    const user = yield call(getUser);
+
+    if (user && token && authorities) {
+      yield put(setCurrentUser({ user, authorities })); // set data in redux store
+    } else {
+      yield put(fetchUserError());
+    }
+
+    // const test = yield call(api.getTestUser);
+    // console.log('test', test);
+  } catch (e) {
+    yield put(fetchUserError());
+  }
+}
+
 function* loginSaga() {
   yield takeLatest(authenticateUser.type, authenticateUserSaga);
+  yield takeLatest(fetchAuthData.type, fetchAuthDataSaga);
+  yield takeLatest(saveAuthData.type, saveAuthDataSaga);
 }
 
 export default loginSaga;

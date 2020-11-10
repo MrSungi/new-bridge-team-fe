@@ -1,9 +1,14 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+/*
+ * Users and token information is fetched from local storage on App load
+ */
+
 const initialState = {
   currentUser: null,
-  isUserAuthenticating: false,
+  isUserAuthenticating: true, // app looks for user token and username on refresh
+  isUserAuthenticationError: false,
 };
 
 const loginSlice = createSlice({
@@ -11,8 +16,8 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     authenticateUser: state => {
-      state.currentUser = null;
       state.isUserAuthenticating = true;
+      state.isUserAuthenticationError = false;
     },
     setCurrentUser: (state, action) => {
       state.currentUser = action.payload;
@@ -20,10 +25,33 @@ const loginSlice = createSlice({
     },
     authenticateUserError: state => {
       state.isUserAuthenticating = false;
+      state.currentUser = null;
+      state.isUserAuthenticationError = true;
+    },
+    fetchAuthData: state => {
+      state.currentUser = null;
+      state.isUserAuthenticating = true;
+    },
+    fetchUserError: state => {
+      state.currentUser = null;
+      state.isUserAuthenticating = false; // app looks for user on refresh
+      state.isUserAuthenticationError = false; // user didnt authenticated, local store was searched
+    },
+    saveAuthData: () => {
+      //       state.currentUser = action.payload;
+      //       state.isUserAuthenticated = !!action.payload;
     },
   },
 });
 
-export const { authenticateUser, setCurrentUser, authenticateUserError } = loginSlice.actions;
+export const {
+  fetchAuthData,
+  authenticateUser,
+  setCurrentUser,
+  authenticateUserError,
+  fetchUserError,
+  saveAuthData,
+  skipLogin,
+} = loginSlice.actions;
 
 export default loginSlice.reducer;

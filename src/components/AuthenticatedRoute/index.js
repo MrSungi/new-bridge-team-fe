@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { isUserAuthenticated } from '../../pages/Login/store/loginSelectors';
-// import { isUserAuthenticated } from '../login/store/loginSelectors';
 import AuthenticatedRoute from './AuthenticatedRoute';
 
+import { getIsUserAuthenticated } from '../../pages/Login/store/loginSelectors';
+
 const mapStateToProps = state => {
-  return { isAuthenticated: isUserAuthenticated(state) };
+  return { isAuthenticated: getIsUserAuthenticated(state) };
 };
 
 export default connect(mapStateToProps)(AuthenticatedRoute);
