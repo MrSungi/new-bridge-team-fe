@@ -25,3 +25,5 @@ yarn-error.log*
 
 .idea/
 /RetroBoard.iml
+
+/.vscode
