@@ -4,14 +4,21 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import CommentIcon from '@material-ui/icons/Comment';
 import './Item.css';
 
-const Item = ({ text, colorClass }) => (
+const Item = ({ text, colorClass, isVotable, voteCount, upVote, columnId, itemId }) => (
   <Grid item className="item-container" xs={12}>
     <div className={colorClass}>
       <p className="item-text">{text}</p>
       <Grid item container direction="row-reverse">
-        <IconButton className="icon-button" aria-label="upvote">
-          <ThumbUpIcon />
-        </IconButton>
+        {isVotable && (
+          <IconButton
+            className="icon-button"
+            onClick={() => upVote(columnId, itemId)}
+            aria-label="upvote"
+          >
+            <ThumbUpIcon />
+            <div>{voteCount}</div>
+          </IconButton>
+        )}
         <IconButton className="icon-button" aria-label="comment">
           <CommentIcon />
         </IconButton>

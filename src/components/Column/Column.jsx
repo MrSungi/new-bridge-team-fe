@@ -17,7 +17,15 @@ export default function Column({ column, addItem }) {
         </div>
         <Grid className="items">
           {column.items.map(item => (
-            <Item colorClass={column.id} text={item.text} key={item.itemId} />
+            <Item
+              colorClass={column.id}
+              text={item.text}
+              voteCount={item.voteCount}
+              isVotable={column.isVotable}
+              columnId={column.id}
+              itemId={item.itemId}
+              key={item.itemId}
+            />
           ))}
         </Grid>
       </Grid>

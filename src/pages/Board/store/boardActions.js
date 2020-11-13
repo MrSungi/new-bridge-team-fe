@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { ADD_ITEM, EDIT_ITEM, DELETE_ITEM } from './boardActionTypes';
+import { ADD_ITEM, EDIT_ITEM, DELETE_ITEM, UPVOTE_ITEM_INIT } from './boardActionTypes';
 
 export const addItem = (text, columnId) => ({
   type: ADD_ITEM,
@@ -7,6 +7,15 @@ export const addItem = (text, columnId) => ({
     columnId,
     itemId: uuid(),
     text,
+    voteCount: 0,
+  },
+});
+
+export const upVote = (columnId, itemId) => ({
+  type: UPVOTE_ITEM_INIT,
+  payload: {
+    columnId,
+    itemId,
   },
 });
 
